@@ -41,9 +41,9 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(data, df_target, random_state = 10, test_size = 0.2)
 
   
-
+    max_leaf_nodes =int(sys.argv[1])
     with mlflow.start_run():
-        decision_tree_classification = DecisionTreeClassifier(criterion='entropy',max_leaf_nodes =int(sys.argv[1]) , random_state = 10)
+        decision_tree_classification = DecisionTreeClassifier(criterion='entropy',max_leaf_nodes =max_leaf_nodes, random_state = 10)
         decision_tree1 = decision_tree_classification.fit(X_train, y_train)
         y_pred=decision_tree1.predict(X_test)
 
