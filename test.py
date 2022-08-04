@@ -43,7 +43,7 @@ if __name__ == "__main__":
   
 
     with mlflow.start_run():
-        decision_tree_classification = DecisionTreeClassifier(criterion='entropy',max_leaf_nodes =sys.argv[1] , random_state = 10)
+        decision_tree_classification = DecisionTreeClassifier(criterion='entropy',max_leaf_nodes =int(sys.argv[1]) , random_state = 10)
         decision_tree1 = decision_tree_classification.fit(X_train, y_train)
         y_pred=decision_tree1.predict(X_test)
 
